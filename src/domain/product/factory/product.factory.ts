@@ -3,23 +3,18 @@ import Product from "../entity/product";
 import ProductB from "../entity/product-b";
 
 export default class ProductFactory {
-  public static createProduct(name: string, price: number): Product {
-    return new Product(uuid(), name, price);
-  }
-
-  public static createProductB(name: string, price: number): ProductB {
-    return new ProductB(uuid(), name, price);
-  }
-
   public static create(
     type: "a" | "b",
     name: string,
     price: number
   ): Product | ProductB {
-    if (type === "a") {
-      return this.createProduct(name, price);
+    switch (type) {
+      case "a":
+        return new Product(uuid(), name, price);
+      case "b":
+        return new ProductB(uuid(), name, price);
+      default:
+        throw new Error("Invalid type");
     }
-
-    return this.createProductB(name, price);
   }
 }

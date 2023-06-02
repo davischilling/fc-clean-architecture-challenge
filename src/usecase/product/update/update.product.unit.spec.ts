@@ -1,7 +1,7 @@
 import ProductFactory from "../../../domain/product/factory/product.factory";
 import UpdateProductUseCase from "./update.product.usecase";
 
-const product = ProductFactory.createProduct("Product Name", 10);
+const product = ProductFactory.create("a", "Product Name", 10);
 
 const input = {
   id: product.id,
