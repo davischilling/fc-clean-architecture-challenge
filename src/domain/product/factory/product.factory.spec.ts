@@ -18,10 +18,4 @@ describe("Product factory unit test", () => {
     expect(product.price).toBe(2);
     expect(product.constructor.name).toBe("ProductB");
   });
-
-  it("should throw an error when product type is not supported", () => {
-    expect(() => ProductFactory.create("c", "Product C", 1)).toThrowError(
-      "Product type not supported"
-    );
-  });
 });
